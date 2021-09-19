@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo " ============== start conianer =================="
                 sh '''
-                docker start -d kerkamran/toolbox:latest 
+                docker run -d kerkamran/toolbox:latest 
                 '''
             }
         }
