@@ -38,5 +38,13 @@ pipeline {
                 '''
             }
         }
+        stage("docker start") {
+            steps {
+                echo " ============== start conianer =================="
+                sh '''
+                docker start -d kerkamran/toolbox:latest 
+                '''
+            }
+        }
     }
 }
