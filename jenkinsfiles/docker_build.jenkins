@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push vasiliy/toolbox:latest
+                docker push VascoQB/toolbox:latest
                 '''
             }
         }
