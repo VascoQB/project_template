@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('docker/toolbox') {
-                	sh 'docker build -t vasiliy/toolbox:latest . '
+                	sh 'docker build -t VascoQB/toolbox:latest . '
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 echo " ============== start conianer =================="
                 sh '''
-                docker run -d vasiliy/toolbox:latest 
+                docker run -d VascoQB/toolbox:latest 
                 '''
             }
         }
