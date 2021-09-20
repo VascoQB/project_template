@@ -15,7 +15,7 @@ pipeline {
          stage("docker login") {
             steps {
                 echo " ============== docker login =================="
-                withCredentials([usernamePassword(credentialsId: 'dockerhub_kerkamran', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_vasiliy', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
                     """
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('docker/toolbox') {
-                	sh 'docker build -t kerkamran/toolbox:latest . '
+                	sh 'docker build -t vasiliy/toolbox:latest . '
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push kerkamran/toolbox:latest
+                docker push vasiliy/toolbox:latest
                 '''
             }
         }
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 echo " ============== start conianer =================="
                 sh '''
-                docker run -d kerkamran/toolbox:latest 
+                docker run -d vasiliy/toolbox:latest 
                 '''
             }
         }
