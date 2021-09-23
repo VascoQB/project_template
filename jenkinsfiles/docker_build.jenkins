@@ -7,7 +7,7 @@ pipeline {
         label 'master'
         }
     options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '1 0', artifactNumToKeepStr: '10'))
         timestamps()
     }
     triggers { pollSCM('* * * * *') }
@@ -15,7 +15,7 @@ pipeline {
          stage("docker login") {
             steps {
                 echo " ============== docker login =================="
-                withCredentials([usernamePassword(credentialsId: 'dockerhub_vasiliy', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_VascoQB', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
                     """
