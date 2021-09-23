@@ -38,22 +38,5 @@ pipeline {
                 '''
             }
         }
-        
-        stage("delete containers") {
-            steps {
-                echo " ============== delete conianer =================="
-                sh '''
-                docker rm -f $(docker ps -a -q)
-                '''
-            }
-        }
-        stage("docker start") {
-            steps {
-                echo " ============== start conianer =================="
-                sh '''
-                docker run -d VascoQB/toolbox:latest 
-                '''
-            }
-        }
     }
 }
